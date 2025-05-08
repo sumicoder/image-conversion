@@ -32,10 +32,6 @@ const config = {
         webpOptions: { quality: 90 },
         avifOptions: { quality: 70 },
     },
-    serve: {
-        webpOptions: { quality: 50 },
-        avifOptions: { quality: 50 },
-    },
 };
 
 // Function to check if a file is a copy
@@ -54,7 +50,7 @@ const findImageFiles = (dir, pattern = IMAGE_PATTERN) => {
 };
 
 // Function to convert images to WebP and AVIF
-const convertToWebPAndAVIF = async (filePath, mode = 'serve', avif = true, outputDir = null) => {
+const convertToWebPAndAVIF = async (filePath, mode = 'build', avif = true, outputDir = null) => {
     const ext = path.extname(filePath).toLowerCase();
     const baseName = path.basename(filePath, ext);
     const dirName = outputDir || path.dirname(filePath);
@@ -103,7 +99,7 @@ const processImages = (destPath) => {
         }
 
         // Convert to WebP and AVIF
-        await convertToWebPAndAVIF(file, 'build', true, outputDir);
+        await convertToWebPAndAVIF(file, 'build', true, outputDir); // 第3引数がAVIF変換の真偽値です
     });
     return Promise.all(promises).then(() => {
         console.timeEnd('\u001b[1;34m処理時間');
