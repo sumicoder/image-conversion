@@ -12,8 +12,6 @@ GitHub の右上にある「Download ZIP」からダウンロードして、お�
 
 `conversion.command.sample`ファイルを`conversion.command`にリネームしてください。このファイルは、プロジェクトの実行に必要なスクリプトを含んでいます。
 
-    - Windows の場合は`conversion.bat`に変更したらできるはずです。
-
 3. **`.command`ファイルの内容を編集**
 
 `conversion.command`ファイルを開き、プロジェクトのパスに合わせて内容を編集してください。具体的には、`cd`コマンドの後に続くパスを、あなたのプロジェクトのディレクトリに変更します。
@@ -35,7 +33,7 @@ cd /Users/ユーザー/Desktop/image-conversion
 
 5.  **コマンド起動**
 
-`conversion.command`ファイルをダブルクリックしてください。
+Finderから`conversion.command`ファイルをダブルクリックしてください。
 
 -   画像の圧縮
 -   WebP 変換
@@ -59,22 +57,23 @@ GitHub の右上にある「Download ZIP」からダウンロードして、お�
 npm install
 ```
 
-4. **ファイルのリネーム**
+3. **ファイルのリネーム**
 
 `conversion.command.sample`ファイルを`conversion.bat`にリネームしてください。このファイルは、プロジェクトの実行に必要なスクリプトを含んでいます。
 
-5. **`.bat`ファイルの内容を編集**
+4. **`.bat`ファイルの内容を編集**
 
 `conversion.bat`ファイルを開き、パスの部分と`npm install`を削除してください。
 
-具体的には、`cd`コマンドの後に続く記述と`npm install`を削除します。
+具体的には、`cd`コマンドの後に続く記述と`npm install`を削除して`npx gulp`だけにします。
 
-```
+```diff
 - cd /Users/ユーザー/Desktop/image-conversion
 - npm install
+npx gulp
 ```
 
-4.  **画像の配置**
+5.  **画像の配置**
 
 変換したい画像を`srcImg`ディレクトリ配下に入れてください。ディレクトリごと配置しても問題ありません。
 
@@ -85,9 +84,9 @@ npm install
 └── sample.png
 ```
 
-5.  **コマンド起動**
+6.  **コマンド起動**
 
-`conversion.bat`ファイルをダブルクリックしてください。
+エクスプローラーから`conversion.bat`ファイルをダブルクリックしてください。
 
 -   画像の圧縮
 -   WebP 変換
@@ -96,6 +95,12 @@ npm install
 が行われます。
 
 ## 補足
+
+### 2回目以降の起動
+
+`node_module`がインストールされていればエディタで開く必要はありません。
+
+`srcImg`に画像を入れて`.commannd`ファイル（Windowsは`.bat`ファイル）をダブルクリックすれば画像変換ができます。
 
 ### ディレクトリについて
 
